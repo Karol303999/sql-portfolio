@@ -34,10 +34,11 @@ SELECT id_dzialu, AVG(pensja) AS srednia_pensja FROM pracownicy GROUP BY id_dzia
 
 9. Pracownicy z pensją powyżej 7000 wraz z nazwą działu
 
-SELECT pracownicy.imie, pracownicy.nazwisko, pracownicy.pensja, dzialy.nazwa_dzialu AS "nazwa_dzialu" FROM pracownicy JOIN dzialy ON pracownicy.id_dzialu = dzialy.id_dzialu WHERE pracownicy.pensja > 7000 ORDER BY pracownicy.pensja DESC;
+SELECT p.imie, p.nazwisko, p.pensja, d.nazwa_dzialu AS "nazwa_dzialu" FROM pracownicy p JOIN dzialy d ON p.id_dzialu = d.id_dzialu WHERE p.pensja > 7000 ORDER BY p.pensja DESC;
 
 10. Tworzenie tymczasowej tabeli 
 
 WITH srednie_pensje AS (SELECT id_dzialu , AVG(pensja) AS srednia_pensja FROM pracownicy GROUP BY id_dzialu) SELECT * FROM srednie_pensje;
+
 
 
